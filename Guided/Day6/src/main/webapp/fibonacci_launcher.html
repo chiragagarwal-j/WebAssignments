@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<p>Enter the number of terms for Fibonacci Series :</p>
+	<form action="fibonacci" method="post">
+		<input type="text" name="formLimit" id="formLimit" required="true">
+		<input type="submit" value="SUBMIT!">
+	</form>
+	<script>
+		function populate() {
+			let limit = document.getElementById("limit").value;
+			document.getElementById("link").href += limit;
+			window.location.href = "fibonacci?n=" + limit;
+		}
+	</script>
+</body>
+</html>
