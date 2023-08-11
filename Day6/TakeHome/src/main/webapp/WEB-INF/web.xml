@@ -8,7 +8,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>CheckForBanPasswords</servlet-name>
-    <url-pattern>/validpassword</url-pattern>
+    <url-pattern>/CheckForBanPasswords</url-pattern>
   </servlet-mapping>
   
   <display-name>MyWebApp</display-name>

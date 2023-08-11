@@ -8,15 +8,15 @@
     <h2>Password Checker</h2>
 
     <form
-      action="CheckForBanPasswords"
+      action="checkForBanPass"
       method="post"
-      onsubmit="return checkPasswords();"
+      onsubmit="return checkPasswords()"
     >
       <label for="pass">Enter the Password:</label>
       <input type="password" id="pass" name="pass" required /><br /><br />
       <label for="repass">Re-enter the Password:</label>
       <input type="password" id="repass" name="repass" required /><br />
-      <p id="passMatchMessage" style="color:red"></p>
+      <p id="passMatchMessage" style="color: red"></p>
       <input type="submit" value="Submit" />
     </form>
 

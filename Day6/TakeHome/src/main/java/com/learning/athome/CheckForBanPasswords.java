@@ -19,6 +19,7 @@ public class CheckForBanPasswords extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String passwordFromForm = request.getParameter("pass");
+		
 		if (checkForBanPass(passwordFromForm)) {
 			response.sendError(HttpServletResponse.SC_NOT_ACCEPTABLE, "This password is banned for the usage!!");
 		} else
@@ -27,7 +28,7 @@ public class CheckForBanPasswords extends HttpServlet {
 	}
 
 	private boolean checkForBanPass(String passwordFromForm) throws IOException {
-		Path myPath = Paths.get("BannedPasswords.txt");
+		Path myPath = Paths.get("/home/chiragagarwals/eclipse-workspace/takehome-web/src/main/java/com/learning/athome/BannedPasswords.txt");
 		List<String> lines = Files.readAllLines(myPath, StandardCharsets.UTF_8);
 		for (String s : lines) {
 			if (s.equals(passwordFromForm))
