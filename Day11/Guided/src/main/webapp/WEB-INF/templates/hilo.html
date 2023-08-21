@@ -16,19 +16,22 @@
 			.centered {
 				text-align: center;
 				font-size: 24px;
-				/* Adjust the font size as needed */
+			}
+
+			.hcentered {
+				text-align: center;
 			}
 		</style>
 	</head>
 
 	<body>
-		<h1>Welcome to the High/Low Game</h1>
-		<form method="post" action="hilo">
+		<h1 class="hcentered">Welcome to the High/Low Game</h1>
+		<form class="centered" method="post" action="hilo">
 			<label for="guess">Enter your guess number here:</label>
 			<input type="text" id="guess" name="guess">
 			<input type="submit" value="Guess!">
 		</form>
-		<h2>Computer's responses:</h2>
+		<h2 class="hcentered">Computer's responses:</h2>
 		<p class="centered"><span th:text="${feedback}">This is gonna get replaced</span></p>
 	</body>
 
