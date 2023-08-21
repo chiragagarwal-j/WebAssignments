@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Hi Lo Game</title>
+</head>
+
+<body>
+	<p>Guess if the number is Higher or Lower than the below number</p>
+	
+	<form action="hilow" method="post" onsubmit="return handleFormSubmit();">
+		<input name="prev" value="100"> 100 </input>
+		<button type="submit" name="guess" value="-1">Lower</button>
+		<button type="submit" name="guess" value="1">Higher</button>
+	</form>
+	<script>
+		function handleFormSubmit() {
+			return true;
+		}
+	</script>
+</body>
+
+</html>

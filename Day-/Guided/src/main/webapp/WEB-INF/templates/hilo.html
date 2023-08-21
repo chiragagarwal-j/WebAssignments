@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>HiLo</title>
+</head>
+
+<body>
+	<!DOCTYPE html>
+	<html>
+
+	<head>
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+		<style>
+			.centered {
+				text-align: center;
+				font-size: 24px;
+				/* Adjust the font size as needed */
+			}
+		</style>
+	</head>
+
+	<body>
+		<h1>Welcome to the High/Low Game</h1>
+		<form method="post" action="hilo">
+			<label for="guess">Enter your guess number here:</label>
+			<input type="text" id="guess" name="guess">
+			<input type="submit" value="Guess!">
+		</form>
+		<h2>Computer's responses:</h2>
+		<p class="centered"><span th:text="${feedback}">This is gonna get replaced</span></p>
+	</body>
+
+	</html>
+</body>
+
+</html>
