@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Odometer Reading Display</title>
+	<style>
+		.centered {
+			text-align: center;
+			font-size: 24px;
+		}
+
+		.hcentered {
+			text-align: center;
+		}
+
+		.form-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.form-container label {
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<h1 class="hcentered">Odometer Reading Display</h1>
+	<form class="centered" method="post" action="odometer">
+		<div class="form-container">
+			<label for="readingSize">Enter the odometer reading size here:</label>
+			<input type="text" id="readingSize">
+			<button type="submit">Submit</button>
+		</div>
+		<input type="hidden" name="click" value="prevReading">
+		<button type="submit">Previous Reading</button>
+		<input type="hidden" name="click" value="nextReading">
+		<button type="submit">Next Reading</button>
+
+	</form>
+	<p class="centered" th:if="${current != null}">Current reading: [[${current}]]</p>
+</body>
+
+</html>
