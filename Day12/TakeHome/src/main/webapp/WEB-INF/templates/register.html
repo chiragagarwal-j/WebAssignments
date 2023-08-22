@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Mangatha Game</title>
+</head>
+
+<body>
+	<main>
+		<section class="game-container">
+			<div class="deck-container">
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+
+			<div class="piles">
+				<div class="in">
+					<div class="card" th:each="card: ${inPile}">
+						<div th:switch="${card.suit}">
+							<p th:case="1">clubs</p>
+							<p th:case="2">diamond</p>
+							<p th:case="3">hearts</p>
+							<p th:case="4">spades</p>
+						</div>
+						<div th:switch="${card.rank}">
+							<p th:case="1">ace</p>
+							<p th:case="*">
+								<span th:text="${card.rank}"></span>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="out">
+					<div class="card" th:each="card: ${outPile}">
+						<div th:switch="${card.suit}">
+							<p th:case="1">clubs</p>
+							<p th:case="2">diamond</p>
+							<p th:case="3">hearts</p>
+							<p th:case="4">spades</p>
+						</div>
+						<div th:switch="${card.rank}">
+							<p th:case="1">ace</p>
+							<p th:case="*">
+								<span th:text="${card.rank}"></span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<form action="mangatha" method="post">
+				<div th:if="${isGameStart}">
+					<input type="submit" name="action" value="draw" />
+				</div>
+				<div th:unless="${isGameStart}">
+					<input type="submit" name="action" value="play" />
+				</div>
+				<input type="submit" name="action" value="reset" />
+			</form>
+		</section>
+		<div th:unless="${isGameStart}">
+			<form action="mangatha" method="post">
+				<label for="name">name</label>
+				<input type="text" id="name" placeholder="player name" name="name" required />
+
+				<label for="bet">net amount</label>
+				<input type="number" min="5" name="bet" required />
+
+				<input type="radio" value="IN" id="in" name="position" />
+				<label for="in">in pile</label>
+
+				<input type="radio" value="OUT" id="out" name="position" />
+				<label for="out">out pile</label>
+
+				<label for="rank">Rank: </label>
+				<select name="rank" id="rank">
+					<option value="A">Ace</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="J">J</option>
+					<option value="Q">Q</option>
+					<option value="K">K</option>
+				</select>
+
+				<label for="suit">Suite: </label>
+				<select name="suit" id="suit">
+					<option value="H">Hearts</option>
+					<option value="D">Diamonds</option>
+					<option value="C">Clubs</option>
+					<option value="S">Spades</option>
+				</select>
+
+				<input type="submit" name="action" value="add" />
+
+			</form>
+		</div>
+		<div th:if="${players.size > 0}">
+			<table>
+				<thead>
+					<tr>
+						<th>bet</th>
+						<th>name</th>
+						<th>chosen card</th>
+						<th>chosen position</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="player: ${players}">
+						<td th:text="${player.bet}"></td>
+						<td th:text="${player.name}"></td>
+						<td th:text="${player.chosenCard}"></td>
+						<td th:text="${player.chosenPosition}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</main>
+</body>
+
+</html>
