@@ -14,6 +14,7 @@ public class Mangatha {
 	private List<Player> players;
 	private boolean isGameStart;
 	private Player winner;
+	private boolean isWinnerAvailable;
 
 	public static Mangatha get() {
 		if (inst == null)
@@ -54,6 +55,7 @@ public class Mangatha {
 		players = new ArrayList<>();
 		this.isGameStart = false;
 		this.winner = null;
+		this.isWinnerAvailable = false;
 		deck.shuffle();
 	}
 
@@ -74,18 +76,24 @@ public class Mangatha {
 		return false;
 	}
 
-	public int accumulateBet(Player player) {
-		return players.stream().filter(p -> p.getName() != player.getName()).mapToInt(p -> p.getBet()).sum();
+	public int accumulateBet() {
+		return players.stream().mapToInt(p -> p.getBet()).sum();
 	}
 
 	public Player getWinner() {
 		for (Player player : players) {
 			if (isInsidePile(player, "IN") || isInsidePile(player, "OUT")) {
-				winner = new Player(player.getName(), accumulateBet(player), player.getChosenPosition(),
+				winner = new Player(player.getName(), accumulateBet(), player.getChosenPosition(),
 						player.getChosenCard());
+				isGameStart = false;
+				isWinnerAvailable = true;
 				break;
 			}
 		}
 		return winner;
+	}
+
+	public boolean getIsWinnerAvailable() {
+		return isWinnerAvailable;
 	}
 }
