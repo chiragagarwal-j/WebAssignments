@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Notice Board</title>
+	<style>
+		.noticeRow {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 20px;
+		}
+
+		.noticeBox {
+			flex-basis: calc(33.33% - 20px);
+			/* 3 notices in a row */
+			box-sizing: border-box;
+			padding: 10px;
+			border: 1px solid #ccc;
+			margin: 5px;
+			text-align: center;
+			
+		}
+
+		.noticeBox h3 {
+			text-align: center;
+			/* Center-align the heading */
+		}
+
+		form {
+			width: 50%;
+			margin: 0 auto;
+			padding: 20px;
+			border: 1px solid #ccc;
+			background-color: #f5f5f5;
+			border-radius: 5px;
+		}
+
+		label {
+			display: block;
+			margin-bottom: 5px;
+			font-weight: bold;
+		}
+
+		input[type="text"],
+		input[type="tel"],
+		textarea {
+			width: 100%;
+			padding: 8px;
+			margin-bottom: 10px;
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			font-size: 14px;
+		}
+
+		textarea {
+			resize: vertical;
+		}
+
+		.loadButton {
+			padding: 8px 12px;
+			background-color: #007bff;
+			color: #fff;
+			border: none;
+			border-radius: 3px;
+			cursor: pointer;
+		}
+		h3{
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+
+	<form>
+		<label for="title">Notice Title:</label>
+		<input type="text" id="title" name="title" required>
+
+		<label for="content">Notice Content:</label>
+		<textarea id="content" name="content" rows="2" cols="50" required></textarea>
+
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" required>
+
+		<label for="phone">Phone Number:</label>
+		<input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+
+		<button type="submit" class="loadButton" name="btn" value="p1">
+			Submit
+		</button>
+
+	</form>
+	<h3>Notice Board</h3>
+	<div>
+		<div class="noticeRow">
+			<div class="noticeBox">
+				<h3>Notice 1</h3>
+				<p><span th:text="${title}">Title1</span>Title1</p>
+				<p><span th:text="${content}">Content1</span>Content1</p>
+				<p><span th:text="${name}">Name1</span>Name1</p>
+				<p><span th:text="${phone}">Phone1</span>Phone1</p>
+			</div>
+
+			<div class="noticeBox">
+				<h3>Notice 2</h3>
+				<p><span th:text="${title}">Title2</span>Title2</p>
+				<p><span th:text="${content}">Content2</span>Content2</p>
+				<p><span th:text="${name}">Name2</span>Name2</p>
+				<p><span th:text="${phone}">Phone2</span>Phone2</p>
+			</div>
+
+			<div class="noticeBox">
+				<h3>Notice 3</h3>
+				<p><span th:text="${title}">Title3</span>Title3</p>
+				<p><span th:text="${content}">Content3</span>Content3</p>
+				<p><span th:text="${name}">Name3</span>Name3</p>
+				<p><span th:text="${phone}">Phone3</span>Phone3</p>
+			</div>
+		</div>
+
+		<div class="noticeRow">
+			<div class="noticeBox">
+				<h3>Notice 4</h3>
+				<p><span th:text="${title}">Title4</span>Title4</p>
+				<p><span th:text="${content}">Content4</span>Content4</p>
+				<p><span th:text="${name}">Name4</span>Name4</p>
+				<p><span th:text="${phone}">Phone4</span>Phone4</p>
+			</div>
+
+			<div class="noticeBox">
+				<h3>Notice 5</h3>
+				<p><span th:text="${title}">Title5</span>Title5</p>
+				<p><span th:text="${content}">Content5</span>Content5</p>
+				<p><span th:text="${name}">Name5</span>Name5</p>
+				<p><span th:text="${phone}">Phone5</span>Phone5</p>
+			</div>
+
+			<div class="noticeBox">
+				<h3>Notice 6</h3>
+				<p><span th:text="${title}">Title6</span>Title6</p>
+				<p><span th:text="${content}">Content6</span>Content6</p>
+				<p><span th:text="${name}">Name6</span>Name6</p>
+				<p><span th:text="${phone}">Phone6</span>Phone6</p>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>
