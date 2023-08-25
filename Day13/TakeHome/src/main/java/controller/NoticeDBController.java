@@ -19,6 +19,7 @@ public class NoticeDBController {
 	}
 
 	public void saveNotice(String title, String content, String name, String phone) throws SQLException {
+
 		String insertQuery1 = "INSERT INTO notices (title,content,name, phone) VALUES (?,?,?,?)";
 		try (PreparedStatement statement = cnx.prepareStatement(insertQuery1)) {
 
@@ -34,6 +35,18 @@ public class NoticeDBController {
 			e.printStackTrace();
 		}
 
+	}
+
+	public void clearNotice() {
+		String clearNotices = "DELETE FROM notices";
+		try (PreparedStatement statement = cnx.prepareStatement(clearNotices)) {
+
+			statement.executeUpdate();
+
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
 	}
 
 	public ResultSet getNotice() {

@@ -18,7 +18,7 @@
 			border: 1px solid #ccc;
 			margin: 5px;
 			text-align: center;
-			
+
 		}
 
 		.noticeBox h3 {
@@ -63,8 +63,10 @@
 			border: none;
 			border-radius: 3px;
 			cursor: pointer;
+			text-align: center;
 		}
-		h3{
+
+		h3 {
 			text-align: center;
 		}
 	</style>
@@ -72,8 +74,8 @@
 
 <body>
 
-	<form>
-		<label for="title">Notice Title:</label>
+	<form action="noticeboard" method="post">
+		<label for=" title">Notice Title:</label>
 		<input type="text" id="title" name="title" required>
 
 		<label for="content">Notice Content:</label>
@@ -88,59 +90,62 @@
 		<button type="submit" class="loadButton" name="btn" value="p1">
 			Submit
 		</button>
-
+		<button type="submit" class="loadButton" name="clrbtn" value="clr">
+			Clear Notices
+		</button>
 	</form>
+
 	<h3>Notice Board</h3>
 	<div>
 		<div class="noticeRow">
 			<div class="noticeBox">
 				<h3>Notice 1</h3>
-				<p><span th:text="${title}">Title1</span>Title1</p>
-				<p><span th:text="${content}">Content1</span>Content1</p>
-				<p><span th:text="${name}">Name1</span>Name1</p>
-				<p><span th:text="${phone}">Phone1</span>Phone1</p>
+				<p><span th:text="${Title1}">Title1</span>Title1</p>
+				<p><span th:text="${Content1}">Content1</span>Content1</p>
+				<p><span th:text="${Name1}">Name1</span>Name1</p>
+				<p><span th:text="${Phone1}">Phone1</span>Phone1</p>
 			</div>
 
 			<div class="noticeBox">
 				<h3>Notice 2</h3>
-				<p><span th:text="${title}">Title2</span>Title2</p>
-				<p><span th:text="${content}">Content2</span>Content2</p>
-				<p><span th:text="${name}">Name2</span>Name2</p>
-				<p><span th:text="${phone}">Phone2</span>Phone2</p>
+				<p><span th:text="${Title2}">Title2</span>Title2</p>
+				<p><span th:text="${Content2}">Content2</span>Content2</p>
+				<p><span th:text="${Name2}">Name2</span>Name2</p>
+				<p><span th:text="${Phone2}">Phone2</span>Phone2</p>
 			</div>
 
 			<div class="noticeBox">
 				<h3>Notice 3</h3>
-				<p><span th:text="${title}">Title3</span>Title3</p>
-				<p><span th:text="${content}">Content3</span>Content3</p>
-				<p><span th:text="${name}">Name3</span>Name3</p>
-				<p><span th:text="${phone}">Phone3</span>Phone3</p>
+				<p><span th:text="${Title3}">Title3</span>Title3</p>
+				<p><span th:text="${Content3}">Content3</span>Content3</p>
+				<p><span th:text="${Name3}">Name3</span>Name3</p>
+				<p><span th:text="${Phone3}">Phone3</span>Phone3</p>
 			</div>
 		</div>
 
 		<div class="noticeRow">
 			<div class="noticeBox">
 				<h3>Notice 4</h3>
-				<p><span th:text="${title}">Title4</span>Title4</p>
-				<p><span th:text="${content}">Content4</span>Content4</p>
-				<p><span th:text="${name}">Name4</span>Name4</p>
-				<p><span th:text="${phone}">Phone4</span>Phone4</p>
+				<p><span th:text="${Title4}">Title4</span>Title4</p>
+				<p><span th:text="${Content}">Content4</span>Content4</p>
+				<p><span th:text="${Name4}">Name4</span>Name4</p>
+				<p><span th:text="${Phone4}">Phone4</span>Phone4</p>
 			</div>
 
 			<div class="noticeBox">
 				<h3>Notice 5</h3>
-				<p><span th:text="${title}">Title5</span>Title5</p>
-				<p><span th:text="${content}">Content5</span>Content5</p>
-				<p><span th:text="${name}">Name5</span>Name5</p>
-				<p><span th:text="${phone}">Phone5</span>Phone5</p>
+				<p><span th:text="${Title5}">Title5</span>Title5</p>
+				<p><span th:text="${Content5}">Content5</span>Content5</p>
+				<p><span th:text="${Name5}">Name5</span>Name5</p>
+				<p><span th:text="${Phone5}">Phone5</span>Phone5</p>
 			</div>
 
 			<div class="noticeBox">
 				<h3>Notice 6</h3>
-				<p><span th:text="${title}">Title6</span>Title6</p>
-				<p><span th:text="${content}">Content6</span>Content6</p>
-				<p><span th:text="${name}">Name6</span>Name6</p>
-				<p><span th:text="${phone}">Phone6</span>Phone6</p>
+				<p><span th:text="${Title6}">Title6</span>Title6</p>
+				<p><span th:text="${Content6}">Content6</span>Content6</p>
+				<p><span th:text="${Name6}">Name6</span>Name6</p>
+				<p><span th:text="${Phone6}">Phone6</span>Phone6</p>
 			</div>
 		</div>
 	</div>

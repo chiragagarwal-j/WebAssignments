@@ -76,15 +76,24 @@ public class NoticeBoardServlet extends HttpServlet {
 			ResultSet rs = noticeDB.getNotice();
 			try {
 				while (rs.next() && index <= 6) {
-					ctx.setVariable("title" + index, rs.getString("title"));
-					ctx.setVariable("content" + index, rs.getString("content"));
-					ctx.setVariable("name" + index, rs.getString("name"));
-					ctx.setVariable("phone" + index, rs.getString("phone"));
+					System.out.println("Here");
+					ctx.setVariable("Title" + index, rs.getString("title"));
+					ctx.setVariable("Content" + index, rs.getString("content"));
+					ctx.setVariable("Name" + index, rs.getString("name"));
+					ctx.setVariable("Phone" + index, rs.getString("phone"));
 					index += 1;
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+			var out = resp.getWriter();
+
+			templateEngine.process("noticeboard", ctx, out);
+		}
+		
+		String clearbuttonId = req.getParameter("clrbtn");
+		if (clearbuttonId != null) {
+			noticeDB.clearNotice();
 			var out = resp.getWriter();
 
 			templateEngine.process("noticeboard", ctx, out);
